@@ -110,12 +110,28 @@ function checaRenovacaoRG() {
 
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
-  // implemente sua lógica aqui
+  let multiploQuatCe = ano % 400 == 0;
+  let multiploCem = ano % 100 == 0;
+  let multiploQuatro = ano % 4 == 0;
 
+  let excecao = multiploQuatro && multiploCem && !multiploQuatCe;
+  let bissexto = multiploQuatCe || multiploQuatro || multiploCem;
+  
+  let result = !excecao && bissexto
+  console.log(excecao)
+  console.log(ano)
+  return result;
 }
 
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
-  // implemente sua lógica aqui
+  let maiorDeIdade = prompt("Você tem mais de 18 anos?");
+  let ensino = prompt("Você possui ensino médio completo?");
+  let disponivel = prompt("Você possui disponibilidade exclusiva durante os horários do curso?");
 
+  let maiorDeIdadeConfirm = maiorDeIdade === "sim";
+  let ensinoConfirm = ensino === "sim";
+  let disponivelConfirm = disponivel === "sim";
+
+  console.log(maiorDeIdadeConfirm && ensinoConfirm && disponivelConfirm);
 }
