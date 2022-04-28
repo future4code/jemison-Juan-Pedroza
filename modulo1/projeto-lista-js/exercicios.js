@@ -113,13 +113,9 @@ function checaAnoBissexto(ano) {
   let multiploQuatCe = ano % 400 == 0;
   let multiploCem = ano % 100 == 0;
   let multiploQuatro = ano % 4 == 0;
-
   let excecao = multiploQuatro && multiploCem && !multiploQuatCe;
   let bissexto = multiploQuatCe || multiploQuatro || multiploCem;
-  
   let result = !excecao && bissexto
-  console.log(excecao)
-  console.log(ano)
   return result;
 }
 
