@@ -20,7 +20,7 @@ function retornaArrayOrdenado(array) {
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-    const arrayPares = array.filter(function(value) {
+    const arrayPares = array.filter((value) => {
         return value % 2 == 0;
     })
   return arrayPares;
@@ -28,7 +28,15 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- 
+    const arrayPares2 = array.filter((value) => {
+        return value % 2 == 0;
+    })
+    console.log(array)
+    console.log(arrayPares2)
+    const elevados = arrayPares2.map((value) => {
+        return value *= value;
+    })
+  return elevados;
 }
 
 // EXERCÍCIO 06
