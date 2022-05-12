@@ -65,7 +65,15 @@ return objeto = {
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
+  let arrayNumeros = [];
+   
 
+  for (i = 0; i < n*2; i++){
+      if (i % 2 == 0){
+          arrayNumeros.push(i);
+      }
+  }
+  return arrayNumeros
 }
 
 // EXERCÍCIO 09
