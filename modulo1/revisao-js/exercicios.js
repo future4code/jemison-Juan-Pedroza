@@ -31,8 +31,6 @@ function retornaNumerosParesElevadosADois(array) {
     const arrayPares2 = array.filter((value) => {
         return value % 2 == 0;
     })
-    console.log(array)
-    console.log(arrayPares2)
     const elevados = arrayPares2.map((value) => {
         return value *= value;
     })
@@ -47,12 +45,27 @@ function retornaMaiorNumero(array) {
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
+  if (num1 > num2){
+    maNumero = num1;
+    meNumero = num2;
+} else {
+    maNumero = num2;
+    meNumero = num1;
+}
+let divisivel = maNumero % meNumero == 0;
 
+let dif = maNumero - meNumero;
+
+return objeto = {
+    maiorNumero: maNumero,
+    maiorDivisivelPorMenor: divisivel,
+    diferenca: dif,
+}
 }
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
-   
+
 }
 
 // EXERCÍCIO 09
@@ -62,22 +75,21 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-  
+
 }
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-   
+
 }
 
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
-   
 }
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
-   
+
 }
 
 // EXERCÍCIO 13B
