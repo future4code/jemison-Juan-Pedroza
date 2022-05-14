@@ -153,6 +153,8 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
       return -1
     } else if (a.nome > b.nome) {
       return 1
+    } else {
+      return 0
     }
   })
   return consultas
@@ -160,5 +162,20 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
-   
+  consultas2 = consultas.sort((a,b) => {
+    let d1 = new Date (a.dataDaConsulta);
+    let d2 = new Date (b.dataDaConsulta);
+    d1Mes = d1.getUTCDate();
+    d2Mes = d2.getUTCDate();
+    d1Dia = d1.getUTCMonth();
+    d2Dia = d2.getUTCMonth();
+    if(d1Mes > d2Mes){
+      return 1;
+    } else if(d1Mes < d2Mes){
+      return -1;
+    } else {
+      return d1Dia - d2Dia;
+    }
+  })
+  return consultas
 }
