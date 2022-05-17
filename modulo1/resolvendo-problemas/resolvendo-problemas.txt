@@ -1,0 +1,9 @@
+Os 7 passos ao meu entendimento são:
+
+1 - Entender bem o enunciado e filtrar palavras chave como "retornar", "se", "enquanto".
+2 - Já usando o primeiro passo, retirar essas informações do texto em português e entender quando que "if" e "whiles" serão usados.
+3 - Entender quais são as entradas (objeto, array, lista de palavras, números) e o que se deve fazer com essas informações no final.
+4 - Fazer um esquema visual com fluxograma ou pseudocódigo pra ajudar no pensamento.
+5 - Criar um código rápido com a primeira coisa que vem na sua cabeça para que a sintaxe seja a mais natural possivel, assim a lógica será a única informação que você precisará pensar de fato.
+6 - Testar para ver se esse código rápido funciona e por que não.
+7 - Agora que a lógica está feita, basta escrever tudo de uma forma mais simples e "limpa" para futura edição e/ou melhoria.
