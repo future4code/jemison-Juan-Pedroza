@@ -65,6 +65,27 @@ img {
     top: 185px;
     text-align: center;
     font-size: 35px;
+    margin-top: 40px;
+
+}
+#galeria a {
+    color: #0003c0;
+    font-weight: bold;
+    font-size: 25px;
+    text-decoration: none;
+}
+#link1{
+    margin-top: 20px;
+}
+
+#galeria a:hover {
+    font-size: 30px;
+    color: rgb(104, 0, 0);
+}
+
+#galeria a:active {
+    font-size: 30px;
+    color: rgb(255, 0, 0);
 }
 
 #lista {
