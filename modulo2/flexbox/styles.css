@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+/* Header */
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: mediumvioletred;
+    padding: 10px;
+}
+
+ .logoTitulo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 230px;
+}
+
+#logo_imagem{
+    width: 25px;
+}
+
+.logo{
+    position: relative;
+}
+
+.cabecalho{ 
+    position: relative;
+}
+
+#botao{
+    padding: 2px;
+} 
+
+/* Menu Lateral */
+
+.menuLateral{
+    background-color: #f2d0e0;
+    width: 400px;
+}
+
+.icones{
+    width: 25px;
+}
+
+.menu{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 20px;
+    width: 330px;
+}
+
+.menuImagens{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menuTextos{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 160px;
+    gap: 20px;
+    left: -60px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.menuSetinhas{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Main */
+
+.conteudoPrincipal{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cartaoPai{
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 10px 50px;
+    max-width: 1500px;
+}
+
+.cartoes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 300px;
+    height: 400px;
+    box-shadow: 3px 3px 3px darkgray;
+}
+
+#img_bolo{
+    width: 300px;
+}
+.tituloBolo{
+    text-align: center;
+    margin: 12px;
+    font-size: 28px;
+}
+.textoBolo{
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+/* Footer */
+
+footer{
+    background-color: mediumvioletred;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.textoRodape{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+#icone_coracao{
+    width: 15px;
+    margin-left: 5px;
+}
