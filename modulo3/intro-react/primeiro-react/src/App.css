@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #f1f1f1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+h1 {
+  color: #333;
+}
+
+.foto-perfil {
+  height: 45vmin;
+  pointer-events: none;
+  margin: 5vh;
+}
+
+p {
+  color: #333;
+  font-weight: 700;
+}
