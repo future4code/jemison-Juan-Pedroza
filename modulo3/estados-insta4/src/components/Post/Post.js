@@ -8,6 +8,9 @@ import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 
+import { BsBookmarkPlus } from "react-icons/bs";
+import { BsBookmarkPlusFill } from "react-icons/bs";
+
 
 const PostContainer = styled.div`
   border: 1px solid gray;
@@ -47,13 +50,17 @@ function Post(props) {
   const [comentando, setComentando] = useState(false)
   const [numeroComentarios, setNumeroComentarios] = useState(0)
   const [comentario, setComentario] = useState('')
+  const [marcado, setMarcado] = useState(false)
+  const [compartilhado, setCompartilhado] = useState(false)
+
+  let escreverComentario
 
   const onClickCurtida = () => {
     console.log('Curtiu!')
     setCurtido(true)
     setnumeroCurtidas(numeroCurtidas + 1)
 
-    if (curtido == true) {
+    if (curtido === true) {
       setCurtido(false)
       console.log('Descurtiu.')
       setnumeroCurtidas(numeroCurtidas - 1)
@@ -78,6 +85,20 @@ function Post(props) {
     setComentario(event.target.value)
   }
 
+  let clicarMarcou = () => {
+    setMarcado(true)
+
+    if (marcado === true) {
+      setMarcado(false)
+    }
+  }
+
+  let compartilhou = () => {
+    setCompartilhado(true)
+
+    //implementar logica de aparecer redes sociais
+  }
+
   let iconeCurtida
 
   if (curtido) {
@@ -86,8 +107,15 @@ function Post(props) {
     iconeCurtida = iconeCoracaoBranco
   }
 
+  let iconeMarcado 
+
+  if (marcado) {
+    iconeMarcado = <BsBookmarkPlusFill onClick={clicarMarcou}/>
+  } else {
+    iconeMarcado = <BsBookmarkPlus onClick={clicarMarcou}/>
+  }
+
   let componenteComentario
-  let escreverComentario
 
   if (comentando) {
     componenteComentario = <SecaoComentario aoEnviar={aoEnviarComentario} />
@@ -108,6 +136,10 @@ function Post(props) {
           onClickIcone={onClickCurtida}
           valorContador={numeroCurtidas}
         />
+
+      <div>
+        {iconeMarcado}
+      </div>  
 
         <IconeComContador
           icone={iconeComentario}
