@@ -107,12 +107,12 @@ function Post(props) {
     iconeCurtida = iconeCoracaoBranco
   }
 
-  let iconeMarcado 
+  let iconeMarcado
 
   if (marcado) {
-    iconeMarcado = <BsBookmarkPlusFill onClick={clicarMarcou}/>
+    iconeMarcado = <BsBookmarkPlusFill onClick={clicarMarcou} />
   } else {
-    iconeMarcado = <BsBookmarkPlus onClick={clicarMarcou}/>
+    iconeMarcado = <BsBookmarkPlus onClick={clicarMarcou} />
   }
 
   let componenteComentario
@@ -123,13 +123,11 @@ function Post(props) {
 
   return (
     <PostContainer>
-      <PostHeader>
-        <UserPhoto src={props.fotoUsuario} alt={'Imagem do usuario'} />
-        <p>{props.nomeUsuario}</p>
-      </PostHeader>
-
-      <PostPhoto src={props.fotoPost} alt={'Imagem do post'} />
-
+      <ul>
+        <li> src={props.fotoUsuario} alt={'Imagem do usuario'} </li>
+        <li>{props.nomeUsuario}</li>
+        <li> src={props.fotoPost} alt={'Imagem do post'} </li>
+      </ul>
       <PostFooter>
         <IconeComContador
           icone={iconeCurtida}
@@ -137,9 +135,9 @@ function Post(props) {
           valorContador={numeroCurtidas}
         />
 
-      <div>
-        {iconeMarcado}
-      </div>  
+        <div>
+          {iconeMarcado}
+        </div>
 
         <IconeComContador
           icone={iconeComentario}
