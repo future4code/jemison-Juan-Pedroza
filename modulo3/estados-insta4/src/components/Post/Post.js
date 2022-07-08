@@ -51,7 +51,6 @@ function Post(props) {
   const [numeroComentarios, setNumeroComentarios] = useState(0)
   const [comentario, setComentario] = useState('')
   const [marcado, setMarcado] = useState(false)
-  const [compartilhado, setCompartilhado] = useState(false)
 
   let escreverComentario
 
@@ -93,11 +92,6 @@ function Post(props) {
     }
   }
 
-  let compartilhou = () => {
-    setCompartilhado(true)
-
-    //implementar logica de aparecer redes sociais
-  }
 
   let iconeCurtida
 
@@ -123,21 +117,19 @@ function Post(props) {
 
   return (
     <PostContainer>
-      <ul>
-        <li> src={props.fotoUsuario} alt={'Imagem do usuario'} </li>
-        <li>{props.nomeUsuario}</li>
-        <li> src={props.fotoPost} alt={'Imagem do post'} </li>
-      </ul>
+      <PostHeader>
+        <UserPhoto src={props.fotoUsuario} alt={'Imagem do usuario'} />
+        <p>{props.nomeUsuario}</p>
+      </PostHeader>
+
+      <PostPhoto src={props.fotoPost} alt={'Imagem do post'} />
+
       <PostFooter>
         <IconeComContador
           icone={iconeCurtida}
           onClickIcone={onClickCurtida}
           valorContador={numeroCurtidas}
         />
-
-        <div>
-          {iconeMarcado}
-        </div>
 
         <IconeComContador
           icone={iconeComentario}
