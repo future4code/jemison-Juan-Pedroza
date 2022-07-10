@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components"
 
-// import { MensagemBalao } from './Mensagem'
-// import { Inputs } from './Input';
-
 const MainDiv = styled.div`
     display: flex;
     flex-direction: column;
@@ -18,8 +15,6 @@ const AreaMensagens = styled.div`
     overflow-y: scroll;
     padding: 25px 40px;
 `
-
-////////////////////////////////// CSS Balão de Texto /////////////////////////////////
 
 const MensagemLinha = styled.div`
     display: flex;
