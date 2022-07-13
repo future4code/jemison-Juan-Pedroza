@@ -13,17 +13,7 @@ const Inputs = styled.input`
     width: 25%;
     padding: 5px;
 `
-const Avancar = styled.button`
-  font-size: 1em;
-  font-weight: 600;
-  margin: 10px auto;
-  width: 20%;
-  padding: 5px;
-`
-
-function Etapa2(props) {
-
-    const {HandleAvancar} = props;
+function Etapa2() {
     return (
         <Gerais>
             <h1>ETAPA 2 - INFORMAÇÕES DO ENSINO SUPERIOR</h1>
@@ -31,7 +21,6 @@ function Etapa2(props) {
             <Inputs type="text" />
             <label>6. Qual a unidade de ensino?</label>
             <Inputs type="text" />
-            <Avancar onClick={HandleAvancar}>Próxima etapa</Avancar>
         </Gerais>
     )
 }

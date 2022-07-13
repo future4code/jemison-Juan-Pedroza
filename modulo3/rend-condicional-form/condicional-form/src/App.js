@@ -5,33 +5,40 @@ import Etapa2 from "./Componentes/Etapa2";
 import Etapa3 from "./Componentes/Etapa3";
 import Final from './Componentes/Final';
 
-const Gerais = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin: 0 auto;
-    text-align: center;
-`
-const Avancar = styled.button`
-  font-size: 1em;
-  font-weight: 600;
-  margin: 10px auto;
-  width: 20%;
-  padding: 5px;
-`
-
-
 function App() {
 
-  const [avancar, setAvancar] = useState(false)
+  const [avancar, setAvancar] = useState('Etapa1')
 
-  const AvancarPagina = () => {
-    setAvancar(!avancar)
+  const handleAvancar = () => {
+    if (avancar === 'Etapa1') {
+      setAvancar('Etapa2')
+    } else if (avancar === 'Etapa2') {
+      setAvancar('Final')
+    }
   }
 
-  if (avancar) {
-    return <Etapa1 HandleAvancar={AvancarPagina} />
+  const RenderizaPagina = () => {
+    switch (avancar) {
+      case 'Etapa1':
+        return <Etapa1 />;
+        break;
+      case 'Etapa2':
+        return <Etapa2 />;
+        break;
+      case 'Final':
+        return <Final />;
+        break;
+      default:
+        return;
+        break;
+    }
   }
+
+  return (
+    <div>
+      {RenderizaPagina()}
+      <button onClick={handleAvancar}>avançar</button>
+    </div>
+  )
 }
-
 export default App;

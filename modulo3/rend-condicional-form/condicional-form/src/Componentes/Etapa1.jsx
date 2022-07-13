@@ -13,24 +13,13 @@ const Inputs = styled.input`
     width: 25%;
     padding: 5px;
 `
-
 const InputsSelect = styled.select`
     margin: 10px auto;
     width: 25%;
     padding: 5px;
 `
 
-const Avancar = styled.button`
-  font-size: 1em;
-  font-weight: 600;
-  margin: 10px auto;
-  width: 20%;
-  padding: 5px;
-`
-
-function Etapa1(props) {
-
-    const {HandleAvancar} = props;
+function Etapa1() {
 
     return (
         <Gerais>
@@ -48,7 +37,6 @@ function Etapa1(props) {
                 <option value="ESI">Ensino Superior Incompleto</option>
                 <option value="ESC">Ensino Superior Completo</option>
             </InputsSelect>
-            <Avancar onClick={HandleAvancar}>Próxima etapa</Avancar>
         </Gerais>
     )
 }
