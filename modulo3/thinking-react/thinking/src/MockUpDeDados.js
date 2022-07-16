@@ -3,7 +3,7 @@ export const Produtos = [
         id: '1',
         nome: 'Produto 01',
         valor: 99.90,
-        img: "https://picsum.photos/200/200"
+        img: 'https://picsum.photos/200/200'
     },
     {
         id: '2',
