@@ -76,3 +76,20 @@ export const Limpar = styled.button`
     padding: 5px 10px;
     font-size: 1.2em;
 `
+
+export const MatchArea = styled.div`
+    display: flex;
+    padding: 20px;
+`
+
+export const FotoMatch = styled.img`
+    width: 80px;
+    max-height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+`
+
+export const NomeMatch = styled.h3`
+    font-size: 1.3em;
+    color: #333;
+`

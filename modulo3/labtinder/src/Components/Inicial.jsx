@@ -30,8 +30,8 @@ function Inicial({ handlePageMatches, handleTeste, perfis }) {
                 </Header>
                 {showPerfil(perfis)}
                 <Botoes>
-                    <button onClick={() => { handleTeste("nao") }}>X</button>
-                    <button onClick={() => { handleTeste("sim") }}>O</button>
+                    <button onClick={() => { handleTeste(false) }}>X</button>
+                    <button onClick={() => { handleTeste(true) }}>O</button>
                 </Botoes>
             </BlocoPrincipal>
             <Limpar>Limpar Matches</Limpar>
