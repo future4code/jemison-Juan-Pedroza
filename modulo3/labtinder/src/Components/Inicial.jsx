@@ -1,44 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { BlocoPrincipal, Header, Body, Nome, Texto, Info, Botoes, Teste, Limpar } from './../styled';
-import axios from 'axios';
 
-function Inicial({ handlePageMatches }) {
-
-    const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/person'
-    const url_choice = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/choose-person'
-
-    const [perfis, setPerfis] = useState({})
-    const [currentID, setCurrentID] = useState()
-    const [isMatch, SetIsMatch] = useState(true)
-
-    const body = {
-        "id": {currentID},
-        "choice": {isMatch}
-    }
-
-    const handleTeste = (bla) => {
-        setCurrentID(bla)
-    }
-
-    // console.log(isMatch)
-
-
-    const GetProfileToChoose = () => {
-        axios.get(url)
-            .then((response) => setPerfis(response.data.profile))
-            .catch((error) => console.log(error.response))
-    }
-
-    const ChoosePerson = () => {
-        axios.post(url_choice, body)
-            .then((response) => console.log(response.data))
-            .catch((error) => console.log(error.response))
-    }
-
-    useEffect(() => {
-        GetProfileToChoose()
-        ChoosePerson()
-    }, [])
+function Inicial({ handlePageMatches, handleTeste, perfis }) {
 
     const showPerfil = (perfil) => {
         return (
@@ -67,8 +30,8 @@ function Inicial({ handlePageMatches }) {
                 </Header>
                 {showPerfil(perfis)}
                 <Botoes>
-                    <button>X</button>
-                    <button onClick={(e) => { handleTeste(perfis.id) }}>O</button>
+                    <button onClick={() => { handleTeste("nao") }}>X</button>
+                    <button onClick={() => { handleTeste("sim") }}>O</button>
                 </Botoes>
             </BlocoPrincipal>
             <Limpar>Limpar Matches</Limpar>
