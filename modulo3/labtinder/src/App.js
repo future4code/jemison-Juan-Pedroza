@@ -93,7 +93,7 @@ function App() {
       return (
         <div>
           <GlobalStyle />
-          <Matches handlePageInicio={handlePageInicio} listaMatches={novoMatch} />
+          <Matches handlePageInicio={handlePageInicio} listaMatches={listaMatches} />
         </div>
       )
     default:
