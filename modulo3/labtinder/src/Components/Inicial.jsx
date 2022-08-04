@@ -1,7 +1,7 @@
 import React from 'react'
 import { BlocoPrincipal, Header, Body, Nome, Texto, Info, Botoes, Teste, Limpar } from './../styled';
 
-function Inicial({ handlePageMatches, handleTeste, perfis }) {
+function Inicial({ handlePageMatches, handleTeste, perfis, clear }) {
 
     const showPerfil = (perfil) => {
         return (
@@ -34,7 +34,7 @@ function Inicial({ handlePageMatches, handleTeste, perfis }) {
                     <button onClick={() => { handleTeste(true) }}>O</button>
                 </Botoes>
             </BlocoPrincipal>
-            <Limpar>Limpar Matches</Limpar>
+            <Limpar onClick={() => { clear() }}>Limpar Matches</Limpar>
         </div>
     )
 }
