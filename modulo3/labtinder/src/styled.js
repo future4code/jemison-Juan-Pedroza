@@ -5,18 +5,34 @@ export const BlocoPrincipal = styled.div`
     flex-direction: column;
     margin: 25px auto;
     width: 550px;
-    border: 1px solid #000;
     border-radius: 25px;
+    box-shadow: 8px 8px 14px 1px #222;
 `
 
 export const Header = styled.div`
     display: flex;
-    justify-content: space-evenly;
+    background-color: #FEE6E1;
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 2px solid #AAA;
+    border-radius: 25px 25px 0 0;
+`
+
+export const Logo = styled.img`
+    margin-left: 175px;
+`
+
+export const BotaoMatch = styled.img`
+    width: 34px;
+    height: 26px;
+    padding-right: 25px;
+    cursor: pointer;
 `
 
 export const Body = styled.div`
     display: flex;
+    background: linear-gradient(152.11deg, #F5CDC9 5.02%, #FFE4DF 56.19%, #F5CDC9 98.17%);
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     flex-direction: column;
     width: 0 90%;
     align-items: center;
@@ -30,6 +46,7 @@ export const Teste = styled.div`
     img{
         width: 450px;
         height: 550px;
+        box-shadow: 3px 3px 10px 5px #4A4A4A;
     }
 `
 export const Info = styled.div`
@@ -45,27 +62,44 @@ export const Nome = styled.div`
     font-size: 1.5em;
     margin-top: -15px;
 
-    p {
-        padding: 7px 10px;
+    h3,p {
+        padding: 0 8px;
+        font-family: 'Paprika';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 34px;
+        line-height: 34px;
+        color: #3D444A;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 `
 export const Texto = styled.div`
     display: flex;
     justify-content: flex-start;
     margin-top: -40px;
+
+    p{
+        padding: 0 8px;
+        font-family: 'Paprika';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 22px;
+        color: #3D444A;
+    }
 `
 
 export const Botoes = styled.div`
     display: flex;
     justify-content: space-around;
-    border-top: 1px solid #000;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #FEE6E1;
+    border-radius: 0 0 25px 25px;
     padding: 10px;
     
-    button {
-        font-size: 3em;
+    img {
+        width: 100px;
         padding: 10px 15px;
-        background: none;
-        border: none;
         cursor: pointer;
     }
 `
@@ -80,8 +114,10 @@ export const Limpar = styled.button`
 export const MatchArea = styled.div`
     display: flex;
     flex-direction: column;
-    display: flex;
-    padding: 20px;
+    padding: 20px 50px;
+    background: linear-gradient(152.11deg, #F5CDC9 5.02%, #FFE4DF 56.19%, #F5CDC9 98.17%);
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 0 90%;
 `
 
 export const FotoMatch = styled.img`

@@ -1,5 +1,7 @@
 import React from 'react'
-import { BlocoPrincipal, Header, MatchArea, FotoMatch, NomeMatch, DivTeste } from './../styled';
+import { BlocoPrincipal, Header, MatchArea, FotoMatch, NomeMatch, DivTeste, Logo, BotaoMatch  } from './../styled';
+import astroLogo from '../img/astroLogo.png'
+import botaoMatches from '../img/Botao.png'
 
 function Matches({ handlePageInicio, listaMatches }) {
 
@@ -17,8 +19,8 @@ function Matches({ handlePageInicio, listaMatches }) {
     return (
         <BlocoPrincipal>
             <Header>
-                <p>astromatch</p>
-                <button onClick={() => handlePageInicio("inicial")}>icon</button>
+                <Logo src={astroLogo} alt="astroLogo" />
+                <BotaoMatch onClick={() => handlePageInicio("inicial")} src={botaoMatches} alt="botaoMatches" />
             </Header>
             <MatchArea>
                 {teste}

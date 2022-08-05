@@ -1,5 +1,10 @@
 import React from 'react'
-import { BlocoPrincipal, Header, Body, Nome, Texto, Info, Botoes, Teste, Limpar } from './../styled';
+import { BlocoPrincipal, Header, Body, Nome, Texto, Info, Botoes, Teste, Limpar, Logo, BotaoMatch } from './../styled';
+import astroLogo from '../img/astroLogo.png'
+import botaoMatches from '../img/Botao.png'
+import BotaoX from '../img/botaoX.png'
+import BotaoO from '../img/botaoO.png'
+// import fundoTeste from '../img/fundoTeste.png'
 
 function Inicial({ handlePageMatches, handleTeste, perfis, clear }) {
 
@@ -25,13 +30,13 @@ function Inicial({ handlePageMatches, handleTeste, perfis, clear }) {
         <div>
             <BlocoPrincipal>
                 <Header>
-                    <p>astromatch</p>
-                    <button onClick={() => handlePageMatches("matches")}>icon</button>
+                    <Logo src={astroLogo} alt="astroLogo"/>
+                    <BotaoMatch onClick={() => handlePageMatches("matches")} src={botaoMatches} alt="botaoMatches" />
                 </Header>
                 {showPerfil(perfis)}
                 <Botoes>
-                    <button onClick={handleTeste}>X</button>
-                    <button onClick={handleTeste}>O</button>
+                    <img onClick={handleTeste} src={BotaoX} alt="a" />
+                    <img onClick={handleTeste} src={BotaoO} alt="b" />
                 </Botoes>
             </BlocoPrincipal>
             <Limpar onClick={() => { clear() }}>Limpar Matches</Limpar>
