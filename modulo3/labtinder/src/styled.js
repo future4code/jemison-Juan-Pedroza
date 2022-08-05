@@ -79,6 +79,8 @@ export const Limpar = styled.button`
 
 export const MatchArea = styled.div`
     display: flex;
+    flex-direction: column;
+    display: flex;
     padding: 20px;
 `
 
@@ -92,4 +94,9 @@ export const FotoMatch = styled.img`
 export const NomeMatch = styled.h3`
     font-size: 1.3em;
     color: #333;
+`
+
+export const DivTeste = styled.div`
+    display: flex;
+    margin: 6px 0;
 `

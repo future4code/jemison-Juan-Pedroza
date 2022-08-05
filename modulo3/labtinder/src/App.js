@@ -7,22 +7,18 @@ import axios from 'axios';
 function App() {
 
   const [pagina, setPagina] = useState("inicial")
-  const [escolha, setEscolha] = useState()
   const [taMeQuerendo, setTaMeQuerendo] = useState()
-  const [novoMatch, setNovoMatch] = useState([])
   const [perfis, setPerfis] = useState({})
-
+  const [listaMatches, setListaMatches] = useState([])
 
   const url_matches = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/matches'
   const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/person'
   const url_choice = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/choose-person'
   const url_clear = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/clear'
   
-  const [listaMatches, setListaMatches] = useState([])
-
   const body = {
     id: perfis.id,
-    choice: { escolha }
+    choice: true
   }
 
   const GetProfileToChoose = () => {
@@ -36,8 +32,8 @@ function App() {
   const ChoosePerson = () => {
     axios.post(url_choice, body)
       .then((response) => {
-        setTaMeQuerendo(response.data.isMatch)
         console.log(response.data.isMatch)
+        setTaMeQuerendo(response.data.isMatch)
       })
       .catch((error) => console.log(error.response))
   }
@@ -45,10 +41,10 @@ function App() {
   const GetMatches = () => {
     axios.get(url_matches)
       .then((response) => {
+        console.log(taMeQuerendo)
         if (taMeQuerendo){
-          setListaMatches( response.data.matches)
-          console.log(response.data.matches)
           alert("Match Adicionado!")
+          setListaMatches(response.data.matches)
         }
       })
       .catch((error) => console.log(error.response))
@@ -71,19 +67,14 @@ function App() {
   }
 
   const handleTeste = () => {
-    // setEscolha(simounao)
-    GetMatches()
     GetProfileToChoose()
     ChoosePerson()
+    GetMatches()
   }
 
   useEffect(() => {
     GetProfileToChoose()
-    // ChoosePerson()
-    // GetMatches()
   }, [])
-
-  console.log(listaMatches)
 
   switch (pagina) {
     case "inicial":
@@ -97,7 +88,7 @@ function App() {
       return (
         <div>
           <GlobalStyle />
-          <Matches handlePageInicio={handlePageInicio} listaMatches1={listaMatches} />
+          <Matches handlePageInicio={handlePageInicio} listaMatches={listaMatches} />
         </div>
       )
     default:
