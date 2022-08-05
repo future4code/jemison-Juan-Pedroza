@@ -45,21 +45,23 @@ function App() {
   const GetMatches = () => {
     axios.get(url_matches)
       .then((response) => {
-        if (escolha && taMeQuerendo) {                             //se eu cliquei em sim e isMatch é true (adicionar na lista de matches e mostrar o alert)
-          setListaMatches(...listaMatches, response.data.matches)
+        if (taMeQuerendo){
+          setListaMatches( response.data.matches)
+          console.log(response.data.matches)
           alert("Match Adicionado!")
         }
-        console.log(listaMatches)
       })
       .catch((error) => console.log(error.response))
   }
 
   const Clear = () => {
     axios.put(url_clear, body)
-    .then((response) => setListaMatches([]))
+    .then((response) => {
+      setListaMatches([])
+      alert("Lista de Matches apagada!")
+    })
     .catch((error) => console.log(error.response))
   }
-  console.log(listaMatches)
 
   const handlePageMatches = () => {
     setPagina("matches")
@@ -68,8 +70,8 @@ function App() {
     setPagina("inicial")
   }
 
-  const handleTeste = (simounao) => {
-    setEscolha(simounao)
+  const handleTeste = () => {
+    // setEscolha(simounao)
     GetMatches()
     GetProfileToChoose()
     ChoosePerson()
@@ -77,9 +79,11 @@ function App() {
 
   useEffect(() => {
     GetProfileToChoose()
-    ChoosePerson()
+    // ChoosePerson()
     // GetMatches()
   }, [])
+
+  console.log(listaMatches)
 
   switch (pagina) {
     case "inicial":
@@ -93,11 +97,11 @@ function App() {
       return (
         <div>
           <GlobalStyle />
-          <Matches handlePageInicio={handlePageInicio} listaMatches={listaMatches} />
+          <Matches handlePageInicio={handlePageInicio} listaMatches1={listaMatches} />
         </div>
       )
     default:
-      console.log("Deu merda")
+      console.log("Deu erro")
       break;
   }
 }

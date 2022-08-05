@@ -1,9 +1,10 @@
 import React from 'react'
 import { BlocoPrincipal, Header, MatchArea, FotoMatch, NomeMatch } from './../styled';
 
-function Matches({ handlePageInicio, listaMatches }) {
+function Matches({ handlePageInicio, listaMatches1 }) {
 
-    console.log(listaMatches)
+    console.log(listaMatches1.name)
+    
     return (
         <BlocoPrincipal>
             <Header>
@@ -11,8 +12,8 @@ function Matches({ handlePageInicio, listaMatches }) {
                 <button onClick={() => handlePageInicio("inicial")}>icon</button>
             </Header>
             <MatchArea>
-                <FotoMatch src={listaMatches.photo} alt={listaMatches.photo_alt} />
-                <NomeMatch>{listaMatches.name}</NomeMatch>
+                <FotoMatch src={listaMatches1.photo} alt={listaMatches1.photo_alt} />
+                <NomeMatch>{listaMatches1.name}</NomeMatch>
             </MatchArea>
         </BlocoPrincipal>
     )
