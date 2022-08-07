@@ -4,9 +4,8 @@ import astroLogo from '../img/astroLogo.png'
 import botaoMatches from '../img/Botao.png'
 import BotaoX from '../img/botaoX.png'
 import BotaoO from '../img/botaoO.png'
-// import fundoTeste from '../img/fundoTeste.png'
 
-function Inicial({ handlePageMatches, handleTeste, perfis, clear }) {
+function Inicial({ handlePageMatches, handleTeste, perfis, clear, handleBotaoNegar }) {
 
     const showPerfil = (perfil) => {
         return (
@@ -35,7 +34,7 @@ function Inicial({ handlePageMatches, handleTeste, perfis, clear }) {
                 </Header>
                 {showPerfil(perfis)}
                 <Botoes>
-                    <img onClick={handleTeste} src={BotaoX} alt="a" />
+                    <img onClick={handleBotaoNegar} src={BotaoX} alt="a" />
                     <img onClick={handleTeste} src={BotaoO} alt="b" />
                 </Botoes>
             </BlocoPrincipal>

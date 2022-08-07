@@ -10,6 +10,7 @@ function App() {
   const [taMeQuerendo, setTaMeQuerendo] = useState()
   const [perfis, setPerfis] = useState({})
   const [listaMatches, setListaMatches] = useState([])
+  const [escolha, setEscolha] = useState(false)
 
   const url_matches = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/matches'
   const url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/person'
@@ -18,7 +19,7 @@ function App() {
   
   const body = {
     id: perfis.id,
-    choice: true
+    choice: escolha
   }
 
   const GetProfileToChoose = () => {
@@ -42,7 +43,7 @@ function App() {
     axios.get(url_matches)
       .then((response) => {
         console.log(taMeQuerendo)
-        if (taMeQuerendo){
+        if (taMeQuerendo && escolha){
           alert("Match Adicionado!")
           setListaMatches(response.data.matches)
         }
@@ -67,9 +68,14 @@ function App() {
   }
 
   const handleTeste = () => {
+    setEscolha(true)
     GetProfileToChoose()
     ChoosePerson()
     GetMatches()
+  }
+
+  const handleBotaoNegar = () => {
+    GetProfileToChoose()
   }
 
   useEffect(() => {
@@ -81,7 +87,7 @@ function App() {
       return (
         <div>
           <GlobalStyle />
-          <Inicial handlePageMatches={handlePageMatches} handleTeste={handleTeste} perfis={perfis} clear={Clear} />
+          <Inicial handlePageMatches={handlePageMatches} handleTeste={handleTeste} handleBotaoNegar={handleBotaoNegar} perfis={perfis} clear={Clear} />
         </div>
       )
     case "matches":
