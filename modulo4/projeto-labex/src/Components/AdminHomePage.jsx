@@ -1,5 +1,6 @@
 import React from 'react'
-import { MainDiv } from '../Styled';
+import { MainDiv, Botoes, BotoesAlinhamento, Titulos } from '../Styled';
+
 import { useNavigate } from 'react-router-dom'
 
 function Administrativo() {
@@ -17,12 +18,12 @@ function Administrativo() {
 
   return (
     <MainDiv>
-        <h1>Painel Administrativo</h1>
-        <div>
-            <button onClick={anterior}>Voltar</button>
-            <button onClick={goToCreateTrip}>Criar Viagem</button>
-            <button onClick={goToLogin}>Login</button>
-        </div>
+        <Titulos>Painel Administrativo</Titulos>
+        <BotoesAlinhamento>
+            <Botoes onClick={anterior}>Voltar</Botoes>
+            <Botoes onClick={goToCreateTrip}>Criar Viagem</Botoes>
+            <Botoes onClick={goToLogin}>Login</Botoes>
+        </BotoesAlinhamento>
     </MainDiv>
   )
 }

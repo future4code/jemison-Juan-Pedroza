@@ -1,10 +1,11 @@
 import React from 'react'
+import { MainDiv, Titulos } from '../Styled';
 
 function TripDetailsPage() {
   return (
-    <div>
-        Admin Detail Page
-    </div>
+    <MainDiv>
+        <Titulos>Admin Detail Page</Titulos>
+    </MainDiv>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import { MainDiv } from '../Styled';
 import { useNavigate } from 'react-router-dom'
+import { MainDiv, Botoes, BotoesAlinhamento, Titulos } from '../Styled';
 
 function Home() {
     const navigate = useNavigate();
@@ -14,11 +14,11 @@ function Home() {
 
     return (
         <MainDiv>
-            <h1>LabeX</h1>
-            <div>
-                <button onClick={goToViagens}>Ver Viagens</button>
-                <button onClick={goToAdmin}>Área de Admin</button>
-            </div>
+            <Titulos>LabeX</Titulos>
+            <BotoesAlinhamento>
+                <Botoes onClick={goToViagens}>Ver Viagens</Botoes>
+                <Botoes onClick={goToAdmin}>Área de Admin</Botoes>
+            </BotoesAlinhamento>
         </MainDiv>
     )
 }

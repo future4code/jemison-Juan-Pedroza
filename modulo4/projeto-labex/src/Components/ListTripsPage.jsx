@@ -1,5 +1,5 @@
 import React from 'react'
-import { MainDiv } from '../Styled';
+import { MainDiv, Botoes, BotoesAlinhamento, Titulos } from '../Styled';
 import { useNavigate } from 'react-router-dom'
 
 function ListaViagens() {
@@ -14,11 +14,11 @@ function ListaViagens() {
 
     return (
         <MainDiv>
-            <div>
-                <button onClick={anterior}>Voltar</button>
-                <button onClick={goToApplication}>Inscrever-se</button>
-            </div>
-            <h1>Lista de Viagens</h1>
+            <BotoesAlinhamento>
+                <Botoes onClick={anterior}>Voltar</Botoes>
+                <Botoes onClick={goToApplication}>Inscrever-se</Botoes>
+            </BotoesAlinhamento>
+            <Titulos>Lista de Viagens</Titulos>
         </MainDiv>
     )
 }
