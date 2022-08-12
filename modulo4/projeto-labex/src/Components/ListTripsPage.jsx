@@ -14,9 +14,9 @@ function ListaViagens() {
         navigate('/trips/application')
     }
 
-    const [trips, isLoading, error] = useRequestDataGet(`${BASE_URL}trips`)
+    const [data, isLoading, error] = useRequestDataGet(`${BASE_URL}trips`)
 
-    const tripsList = trips && trips.map((trip, key) => {
+    const tripsList = data && data.trips && data.trips.map((trip, key) => {
         return (
             <TripDiv key={trip.id}>
                 <TripsInfo>
@@ -47,8 +47,8 @@ function ListaViagens() {
             <Titulos>Lista de Viagens</Titulos>
             {isLoading && <p>Carregando...</p>}
             {!isLoading && error && <p>Ocorreu um erro</p>}
-            {!isLoading && trips && trips.length > 0 && tripsList}
-            {!isLoading && trips && trips.length === 0 && <p>Não há nenhuma viagem</p>}
+            {!isLoading && data && data.trips && data.trips.length > 0 && tripsList}
+            {!isLoading && data && data.trips && data.trips.length === 0 && <p>Não há nenhuma viagem</p>}
         </MainDiv>
     )
 }
