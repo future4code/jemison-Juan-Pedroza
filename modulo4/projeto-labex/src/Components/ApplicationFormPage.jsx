@@ -1,44 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MainDiv, Titulos, Formulario, Inputs, Botoes, BotoesAlinhamento, Selected } from '../Styled';
 import { useRequestDataGet } from './../Hooks/useRequestDataGet';
 import { BASE_URL } from './../Constantes/Constantes';
 import axios from 'axios';
+import { useForm } from '../Hooks/useForm';
 
 function ApplicationFormPage() {
   const navigate = useNavigate();
 
-  const [inputName, setInputName] = useState('')
-  const [inputIdade, setInputIdade] = useState('')
-  const [inputTexto, setInputTexto] = useState('')
-  const [inputProfissao, setInputProfissao] = useState('')
+  const [form,onChange,clear] = useForm({ name: "", age: "", applicationText: "", profession: "" })
 
-  const goBack = () => {
-    navigate(-1)
-  }
-
-  const handleInputName = (e) => {
-    setInputName(e.target.value)
-  }
-  const handleInputIdade = (e) => {
-    setInputIdade(e.target.value)
-  }
-  const handleInputTexto = (e) => {
-    setInputTexto(e.target.value)
-  }
-  const handleInputProfissao = (e) => {
-    setInputProfissao(e.target.value)
-  }
-
-  const body = {
-    name: inputName,
-    age: inputIdade,
-    applicationText: inputTexto,
-    profession: inputProfissao,
-    country: 'brasil',
-  }
-
-  const ApplyToTripHook = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
     axios.post(`${BASE_URL}trips/:id/apply`, body)
       .then((response) => {
         console.log(response.data)
@@ -47,6 +21,19 @@ function ApplicationFormPage() {
         console.log(error.response.data)
         alert("Erro detectado")
       })
+      clear();
+  }
+
+  const goBack = () => {
+    navigate(-1)
+  }
+
+  const body = {
+    name: form.name,
+    age: form.age,
+    applicationText: form.applicationText,
+    profession: form.profession,
+    country: 'brasil',
   }
 
   const [data, isLoading, error] = useRequestDataGet(`${BASE_URL}trips`)
@@ -64,39 +51,49 @@ function ApplicationFormPage() {
   return (
     <MainDiv>
       <Titulos>Inscreva-se para uma viagem</Titulos>
-      <Formulario>
+      <Formulario onSubmit={handleSubmit}>
         <Selected name="Teste1" id="t1">
           {tripsList}
         </Selected>
         <Inputs
+          name="name"
           type="text"
           placeholder='Nome'
-          onChange={handleInputName}
-          value={inputName}
+          onChange={onChange}
+          value={form.name}
+          pattern="^.{3,}"
+          required
         />
         <Inputs
-          type="text"
+          name="age"
+          type="number"
           placeholder='Idade'
-          onChange={handleInputIdade}
-          value={inputIdade}
+          onChange={onChange}
+          value={form.age}
+          pattern="^.{3,}"
+          required
         />
         <Inputs
+          name="applicationText"
           type="text"
           placeholder='Texto de candidatura'
-          onChange={handleInputTexto}
-          value={inputTexto}
+          onChange={onChange}
+          value={form.applicationText}
+          required
         />
         <Inputs
+          name="profession"
           type="text"
           placeholder='Profissão'
-          onChange={handleInputProfissao}
-          value={inputProfissao}
+          onChange={onChange}
+          value={form.profession}
+          required
         />
+        <BotoesAlinhamento>
+          <Botoes onClick={goBack}>Voltar</Botoes>
+          <Botoes>Enviar</Botoes>
+        </BotoesAlinhamento>
       </Formulario>
-      <BotoesAlinhamento>
-        <Botoes onClick={goBack}>Voltar</Botoes>
-        <Botoes onClick={() => ApplyToTripHook()}>Enviar</Botoes>
-      </BotoesAlinhamento>
     </MainDiv>
   )
 }

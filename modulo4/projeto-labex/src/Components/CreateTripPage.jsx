@@ -25,14 +25,25 @@ function CreateTripPage() {
           <option value="c">Urano</option>
           <option value="c">Netuno</option>
         </Selected>
-        <Inputs type="date"/>
-        <Inputs type="text" placeholder='Descrição' />
-        <Inputs type="text" placeholder='Duração em dias' />
+        <Inputs
+          type="date"
+          required
+        />
+        <Inputs
+          type="text"
+          placeholder='Descrição'
+          required
+        />
+        <Inputs
+          type="number"
+          placeholder='Duração em dias'
+          required
+        />
+        <BotoesAlinhamento>
+          <Botoes onClick={goBack}>Voltar</Botoes>
+          <Botoes>Enviar</Botoes>
+        </BotoesAlinhamento>
       </Formulario>
-      <BotoesAlinhamento>
-        <Botoes onClick={goBack}>Voltar</Botoes>
-        <Botoes>Enviar</Botoes>
-      </BotoesAlinhamento>
     </MainDiv>
   )
 }

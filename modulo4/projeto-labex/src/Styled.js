@@ -22,13 +22,15 @@ export const BotoesAlinhamento = styled.div`
     margin-top: 15px;
 `
 
-export const Botoes = styled.p`
+export const Botoes = styled.button`
     font-size: 1.3em;
     background-color: #62707F;
     padding: 12px 24px;
+    border: none;
     border-radius: 24px;
     color: white;
     cursor: pointer;
+    margin-bottom: 20px;
 `
 export const Formulario = styled.form`
     display: flex;
@@ -89,4 +91,15 @@ export const TripDiv = styled.div`
 
 export const TripsInfo = styled.div`
     display: flex;
+`
+
+export const ListaViagem = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin-top: 30px;
+    padding: 20px;
+    box-shadow: 5px 5px 6px 3px #BBB;
+    border-radius: 5px;
+    cursor: pointer;
 `
