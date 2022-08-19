@@ -9,7 +9,7 @@ function Home() {
         navigate('trips/list')
     }
     const goToAdmin = () => {
-        navigate('admin/trips/list')
+        navigate('login')
     }
 
     return (

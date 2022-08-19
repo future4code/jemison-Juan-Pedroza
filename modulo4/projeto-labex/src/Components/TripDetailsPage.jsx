@@ -1,10 +1,13 @@
-import React from 'react'
-import { MainDiv, Botoes, BotoesAlinhamento, Titulos, ListaViagem } from '../Styled';
+import React, { useEffect } from 'react'
+import { MainDiv, Botoes, BotoesAlinhamento, TripDiv, TripsInfo, InfoViagem, Titulos, TitulosSecundario } from '../Styled';
 import { BASE_URL } from './../Constantes/Constantes';
-import { useRequestDataGet } from './../Hooks/useRequestDataGet';
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { useState } from 'react';
+import { useProtectedPage } from './../Hooks/useProtectedPage';
 
 function TripDetailsPage() {
+  useProtectedPage();
 
   const navigate = useNavigate();
 
@@ -12,28 +15,71 @@ function TripDetailsPage() {
     navigate(-1)
   }
 
-  const [data, isLoading, error] = useRequestDataGet(`${BASE_URL}trips`)
-  const tripsList = data && data.trips && data.trips.map((trip, key) => {
+  const [infoTrip, setinfoTrip] = useState({})
+  const [candidatos, setCandidatos] = useState([])
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    axios.get(`${BASE_URL}trip/lDHLGsAzSpvlS1xEbm0k`, {
+      headers: {
+        auth: token
+      }
+    }).then((res) => {
+      setinfoTrip(res.data.trip)
+      setCandidatos(res.data.trip.candidates)
+    }).catch((error) => {
+      console.log("deu erro", error.message)
+    })
+  }, [])
+
+  const listaCandidatos = candidatos.map((candidato, key) => {
     return (
-      <ListaViagem key={trip.id} >
-        {isLoading && <p>Carregando...</p>}
-        {!isLoading && error && <p>Ocorreu um erro</p>}
-        {!isLoading && data && data.trips && data.trips.length > 0 && trip.name}
-        {!isLoading && data && data.trips && data.trips.length === 0 && <p>Não há nenhuma viagem</p>}
-      </ListaViagem>
+      <TripDiv key={candidato.id}>
+        <TripsInfo>
+          <p>Nome: </p><span>{candidato.name}</span>
+        </TripsInfo>
+        <TripsInfo>
+          <p>Profissão: </p><span>{candidato.profession}</span>
+        </TripsInfo>
+        <TripsInfo>
+          <p>Idade: </p><span>{candidato.age}</span>
+        </TripsInfo>
+        <TripsInfo>
+          <p>País: </p><span>{candidato.country}</span>
+        </TripsInfo>
+        <TripsInfo>
+          <p>Candidatura: </p><span>{candidato.applicationText}</span>
+        </TripsInfo>
+      </TripDiv>
     )
   })
 
   return (
     <MainDiv>
-      <Titulos>Nome da viagem clicada</Titulos>
-      {tripsList}
-      <p>Dados da viagem clicada</p>
+      <Titulos>{infoTrip.name}</Titulos>
+      <InfoViagem>
+        <TripsInfo>
+          <p>Nome: </p><span>{infoTrip.name}</span>
+        </TripsInfo>
+        <TripsInfo>
+          <p>Descrição: </p><span>{infoTrip.description}</span>
+        </TripsInfo>
+        <TripsInfo>
+          <p>Planeta: </p><span>{infoTrip.planet}</span>
+        </TripsInfo>
+        <TripsInfo>
+          <p>Duração: </p><span>{infoTrip.durationInDays}</span>
+        </TripsInfo>
+        <TripsInfo>
+          <p>Data: </p><span>{infoTrip.date}</span>
+        </TripsInfo>
+      </InfoViagem>
       <BotoesAlinhamento>
         <Botoes onClick={anterior}>Voltar</Botoes>
       </BotoesAlinhamento>
-      <h4>Candidatos Pendentes</h4>
-      <p>lista com cada candidato inscrito</p>
+      <TitulosSecundario>Candidatos Pendentes</TitulosSecundario>
+      {listaCandidatos}
     </MainDiv>
   )
 }

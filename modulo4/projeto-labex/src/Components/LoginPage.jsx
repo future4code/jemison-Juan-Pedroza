@@ -1,31 +1,43 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
 import { MainDiv, Formulario, Inputs, Botoes, BotoesAlinhamento, Titulos } from '../Styled';
+import { useNavigate } from 'react-router-dom'
+import { useForm } from './../Hooks/useForm';
+import { BASE_URL } from './../Constantes/Constantes';
+import axios from 'axios';
 
 function LoginPage() {
   const navigate = useNavigate();
-
-  const [logar, setLogar] = useState({ username: "", password: "" })
-
-  const onChange = (e) => {
-    const { name, value } = e.target
-    setLogar({ ...logar, [name]: value })
-  }
 
   const goBack = () => {
     navigate(-1)
   }
 
-  console.log(logar)
+  const [form, onChange, clear] = useForm({ email:"", password:"" })
+  console.log(form)
+
+  const fazerLogin = (e) => {
+    e.preventDefault()
+
+    axios.post(`${BASE_URL}login`, form)
+      .then(response => {
+        localStorage.setItem('token', response.data.token)
+        navigate('/admin/trips/list')
+      })
+      .catch((error) => {
+        console.log(error.message)
+        alert("Informações erradas")
+      })
+    clear();
+  }
 
   return (
     <MainDiv>
       <Titulos>Login</Titulos>
-      <Formulario>
+      <Formulario onSubmit={fazerLogin}>
         <Inputs
-          name="username"
+          name="email"
           type="email"
-          value={logar.username}
+          value={form.email}
           onChange={onChange}
           placeholder='E-mail'
           pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
@@ -34,7 +46,7 @@ function LoginPage() {
         <Inputs
           name="password"
           type="password"
-          value={logar.password}
+          value={form.password}
           onChange={onChange}
           placeholder='Senha'
           pattern="^.{3,}"

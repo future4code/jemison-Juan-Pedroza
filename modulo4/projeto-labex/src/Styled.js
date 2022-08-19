@@ -4,13 +4,19 @@ export const MainDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 100px auto;
+    margin: 60px auto;
     width: 1000px;
 `
 
 export const Titulos = styled.h1`
     font-size: 3em;
     margin: 40px;
+    color: #525F6D;
+    text-align: center;
+`
+export const TitulosSecundario = styled.h1`
+    font-size: 2em;
+    margin: 20px;
     color: #525F6D;
     text-align: center;
 `
@@ -69,7 +75,7 @@ export const TripDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 550px;
+    width: 675px;
     height: 250px;
     box-shadow: 5px 5px 6px 4px #A6A6A6;
     margin: 20px;
@@ -102,4 +108,26 @@ export const ListaViagem = styled.div`
     box-shadow: 5px 5px 6px 3px #BBB;
     border-radius: 5px;
     cursor: pointer;
+`
+
+export const InfoViagem = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 550px;
+    height: 250px;
+
+    p {
+        color: #62707F;
+        font-size: 1.2em;
+        font-weight: 600;
+        padding: 0 25px;
+        text-align: center;
+    }
+
+    span {
+        line-height: 1.5;
+        font-weight: 500;
+        margin: -2px -18px;
+    }
 `

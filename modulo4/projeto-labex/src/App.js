@@ -1,4 +1,4 @@
-import ListaRoutes from './Components/ListaRoutes';
+import ListaRoutes from './Components/ListRoutes';
 import GlobalStyle from './globalStyles';
 
 function App() {

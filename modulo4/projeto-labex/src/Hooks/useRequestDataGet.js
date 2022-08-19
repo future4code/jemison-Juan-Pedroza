@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export const useRequestDataGet = (url) => {
-  const [data, setData] = useState(undefined)
+  const [data, setData] = useState({})
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
 

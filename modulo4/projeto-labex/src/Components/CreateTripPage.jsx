@@ -1,8 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MainDiv, Titulos, Formulario, Inputs, Botoes, BotoesAlinhamento, Selected } from '../Styled';
+import { useProtectedPage } from './../Hooks/useProtectedPage';
 
 function CreateTripPage() {
+  useProtectedPage();
+  
   const navigate = useNavigate();
 
   const goBack = () => {
