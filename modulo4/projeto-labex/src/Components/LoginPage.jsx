@@ -12,7 +12,7 @@ function LoginPage() {
     navigate(-1)
   }
 
-  const [form, onChange, clear] = useForm({ email:"", password:"" })
+  const [form, onChange, clear] = useForm({ email: "", password: "" })
   console.log(form)
 
   const fazerLogin = (e) => {
@@ -22,6 +22,7 @@ function LoginPage() {
       .then(response => {
         localStorage.setItem('token', response.data.token)
         navigate('/admin/trips/list')
+        
       })
       .catch((error) => {
         console.log(error.message)
@@ -29,6 +30,7 @@ function LoginPage() {
       })
     clear();
   }
+  
 
   return (
     <MainDiv>
@@ -54,7 +56,7 @@ function LoginPage() {
         />
         <BotoesAlinhamento>
           <Botoes onClick={() => goBack()}>Voltar</Botoes>
-          <Botoes>Entrar</Botoes>
+          <Botoes>Entrar </Botoes>
         </BotoesAlinhamento>
       </Formulario>
     </MainDiv>

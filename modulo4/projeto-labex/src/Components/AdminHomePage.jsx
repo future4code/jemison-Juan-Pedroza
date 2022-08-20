@@ -2,11 +2,12 @@ import React from 'react'
 import { MainDiv, Botoes, BotoesAlinhamento, Titulos, ListaViagem, TitulosSecundario } from '../Styled';
 import { BASE_URL } from './../Constantes/Constantes';
 import { useRequestDataGet } from './../Hooks/useRequestDataGet';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useProtectedPage } from './../Hooks/useProtectedPage';
 
 function Administrativo() {
   useProtectedPage();
+  
   const navigate = useNavigate();
 
   const anterior = () => {

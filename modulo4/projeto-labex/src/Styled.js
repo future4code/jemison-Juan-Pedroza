@@ -36,7 +36,7 @@ export const Botoes = styled.button`
     border-radius: 24px;
     color: white;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 `
 export const Formulario = styled.form`
     display: flex;
@@ -76,7 +76,7 @@ export const TripDiv = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     width: 675px;
-    height: 250px;
+    height: 300px;
     box-shadow: 5px 5px 6px 4px #A6A6A6;
     margin: 20px;
 
@@ -97,6 +97,7 @@ export const TripDiv = styled.div`
 
 export const TripsInfo = styled.div`
     display: flex;
+    margin-top: 10px;
 `
 
 export const ListaViagem = styled.div`

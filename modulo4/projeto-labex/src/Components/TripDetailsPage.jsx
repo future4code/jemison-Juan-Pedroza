@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { MainDiv, Botoes, BotoesAlinhamento, TripDiv, TripsInfo, InfoViagem, Titulos, TitulosSecundario } from '../Styled';
 import { BASE_URL } from './../Constantes/Constantes';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useState } from 'react';
 import { useProtectedPage } from './../Hooks/useProtectedPage';
@@ -9,19 +9,21 @@ import { useProtectedPage } from './../Hooks/useProtectedPage';
 function TripDetailsPage() {
   useProtectedPage();
 
+  const params = useParams();
   const navigate = useNavigate();
 
   const anterior = () => {
     navigate(-1)
   }
 
+  console.log(params)
   const [infoTrip, setinfoTrip] = useState({})
   const [candidatos, setCandidatos] = useState([])
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    axios.get(`${BASE_URL}trip/lDHLGsAzSpvlS1xEbm0k`, {
+    axios.get(`${BASE_URL}trip/${params.id}`, {
       headers: {
         auth: token
       }
@@ -31,7 +33,7 @@ function TripDetailsPage() {
     }).catch((error) => {
       console.log("deu erro", error.message)
     })
-  }, [])
+  }, [params])
 
   const listaCandidatos = candidatos.map((candidato, key) => {
     return (
@@ -51,6 +53,10 @@ function TripDetailsPage() {
         <TripsInfo>
           <p>Candidatura: </p><span>{candidato.applicationText}</span>
         </TripsInfo>
+        <BotoesAlinhamento>
+          <Botoes onClick={anterior}>Aprovar</Botoes>
+          <Botoes onClick={anterior}>Reprovar</Botoes>
+        </BotoesAlinhamento>
       </TripDiv>
     )
   })
