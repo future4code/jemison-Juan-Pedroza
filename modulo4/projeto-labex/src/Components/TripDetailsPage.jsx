@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { MainDiv, Botoes, BotoesAlinhamento, TripDiv, TripsInfo, InfoViagem, Titulos, TitulosSecundario } from '../Styled';
 import { BASE_URL } from './../Constantes/Constantes';
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
-import { useState } from 'react';
 import { useProtectedPage } from './../Hooks/useProtectedPage';
 
 function TripDetailsPage() {
@@ -12,13 +11,25 @@ function TripDetailsPage() {
   const params = useParams();
   const navigate = useNavigate();
 
+  const [aprovacao, setAprovacao] = useState(false)
+  const [idCandidato, setIdCandidato] = useState("")
+  const [infoTrip, setinfoTrip] = useState({})
+  const [candidatos, setCandidatos] = useState([])
+
   const anterior = () => {
     navigate(-1)
   }
+  const escolha = (blaaa) => {
+    setAprovacao(blaaa)
+  }
 
-  console.log(params)
-  const [infoTrip, setinfoTrip] = useState({})
-  const [candidatos, setCandidatos] = useState([])
+  const teste = (idTeste) => {
+    setIdCandidato(idTeste)
+  }
+
+  const body = {
+    "approve": { aprovacao }
+  }
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -33,7 +44,16 @@ function TripDetailsPage() {
     }).catch((error) => {
       console.log("deu erro", error.message)
     })
-  }, [params])
+    axios.put(`${BASE_URL}trips/${params.id}/candidates/${idCandidato}/decide`, body, {
+      headers: {
+        auth: token
+      }
+    }).then((response) => alert("Realizado com sucesso!"))
+      .catch((error) => console.log("Ocorreu um erro"))
+  }, [params,idCandidato])
+
+
+
 
   const listaCandidatos = candidatos.map((candidato, key) => {
     return (
@@ -54,8 +74,14 @@ function TripDetailsPage() {
           <p>Candidatura: </p><span>{candidato.applicationText}</span>
         </TripsInfo>
         <BotoesAlinhamento>
-          <Botoes onClick={anterior}>Aprovar</Botoes>
-          <Botoes onClick={anterior}>Reprovar</Botoes>
+          <Botoes onClick={() => {
+            escolha(true)
+            teste(candidato.id)
+          }}>Aprovar</Botoes>
+          <Botoes onClick={() => {
+            escolha(false)
+            teste(candidato.id)
+          }}>Reprovar</Botoes>
         </BotoesAlinhamento>
       </TripDiv>
     )
