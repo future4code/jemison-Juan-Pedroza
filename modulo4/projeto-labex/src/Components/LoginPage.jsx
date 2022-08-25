@@ -13,7 +13,6 @@ function LoginPage() {
   }
 
   const [form, onChange, clear] = useForm({ email: "", password: "" })
-  console.log(form)
 
   const fazerLogin = (e) => {
     e.preventDefault()

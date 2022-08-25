@@ -132,3 +132,7 @@ export const InfoViagem = styled.div`
         margin: -2px -18px;
     }
 `
+export const BotaoLixo = styled.img`
+    width: 20px;
+    border: none;
+`
