@@ -1,8 +1,14 @@
 const fatorial = (n: number) => {
-    for (let i = n; i > 0; i--) {
-        n *= n - 1
-        console.log(n)
+    let factorial = 1
+    for (let i = 1; i <= n; i++) {
+        factorial *= i
     }
+    console.log(factorial)
 }
 
-fatorial(4)
+const contaAnagrama = (word:string) => {
+    const letters:string[] = word.split('')
+    fatorial(letters.length)
+}
+
+contaAnagrama('juanCarlos')
