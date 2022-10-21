@@ -23,7 +23,7 @@ const arrayFuncionarios: funcionarios[] = [
 
 const filtraFuncionarios = (array: funcionarios[]) => {
     array.filter(funcionario => {
-        let newArray: funcionarios[]
+        let newArray: funcionarios[] = []
         if (funcionario.setor === SETOR.marketing && funcionario.presencial === true) {
             newArray?.push(funcionario)
             console.log(newArray)
