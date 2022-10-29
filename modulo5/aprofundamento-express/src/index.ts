@@ -16,6 +16,7 @@ type TODOS = {
 
 app.get('/ping', (req: Request, res: Response) => {
     const filtraArray = () => {
+        for ()
     }
 })
 
