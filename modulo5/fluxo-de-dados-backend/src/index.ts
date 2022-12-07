@@ -15,6 +15,15 @@ app.get('/test', (req, res) => {
     res.status(200).send(produtos)
 })
 
-app.post('/addproduto', (req, res) => {
-    res.status(200).send('produtos')
+// app.post('/test', (req, res) => {
+//     const newProduto = req.body
+//     produtos.push(newProduto)
+
+//     res.status(201).send(produtos)
+// })
+
+app.post('/test2', (req, res) => {
+    const testeEdit = req.body.price
+    produtos[2].price = testeEdit
+    res.status(201).send(produtos)
 })
